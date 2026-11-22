@@ -1,0 +1,90 @@
+{
+  "id": "sticky-notes",
+  "name": "Rotating Sticky Note",
+  "version": "0.1.2",
+  "description": "A sticky note that cycles through multiple pages.",
+  "author": "You",
+  "license": "MIT",
+  "minAppVersion": "0.18.0",
+  "moduleType": "sticky-notes",
+  "category": "Personal",
+  "icon": "sticky-note",
+  "defaultConfig": {
+    "pages": [
+      { "text": "First note", "duration": 0, "color": "", "textColor": "" },
+      { "text": "Second note", "duration": 0, "color": "", "textColor": "" }
+    ],
+    "defaultDuration": 8,
+    "fontSize": 1.1,
+    "color": "#fef08a",
+    "textColor": "#1c1917"
+  },
+  "defaultSize": { "w": 280, "h": 280 },
+  "exports": { "component": "default" },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "pages": {
+        "type": "array",
+        "title": "Pages",
+        "items": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "title": "Text",
+              "ui:widget": "textarea"
+            },
+            "duration": {
+              "type": "number",
+              "title": "Seconds (0 = use default)",
+              "default": 0,
+              "minimum": 0,
+              "ui:widget": "number"
+            },
+            "color": {
+              "type": "string",
+              "title": "Background color (empty = default)",
+              "default": "",
+              "ui:widget": "color"
+            },
+            "textColor": {
+              "type": "string",
+              "title": "Text color (empty = default)",
+              "default": "",
+              "ui:widget": "color"
+            }
+          }
+        }
+      },
+      "defaultDuration": {
+        "type": "number",
+        "title": "Default seconds per page",
+        "default": 8,
+        "minimum": 1,
+        "ui:widget": "number"
+      },
+      "fontSize": {
+        "type": "number",
+        "title": "Font size (em)",
+        "default": 1.1,
+        "minimum": 0.7,
+        "maximum": 2.5,
+        "ui:widget": "slider",
+        "ui:step": 0.1
+      },
+      "color": {
+        "type": "string",
+        "title": "Default background color",
+        "default": "#fef08a",
+        "ui:widget": "color"
+      },
+      "textColor": {
+        "type": "string",
+        "title": "Default text color",
+        "default": "#1c1917",
+        "ui:widget": "color"
+      }
+    }
+  }
+}
